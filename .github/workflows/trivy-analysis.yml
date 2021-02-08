@@ -13,7 +13,7 @@ jobs:
 
       - name: Build an image from Dockerfile
         run: |
-          docker build -t /Users/davidang/DockerImage/projects:${{ github.sha }} .
+          docker build -t /Users/davidang/DockerImage/projects/:catnip .
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
