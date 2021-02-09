@@ -12,12 +12,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build an image from Dockerfile
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        run: docker build . --file Dockerfile --tag my-image-name
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/projects/my-image-name:$(date +%s)'
+          image-ref: 'docker.io/library/my-image-name'
           format: 'template'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
